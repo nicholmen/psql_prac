@@ -19,7 +19,7 @@ var date = process.argv[4];
 
 
 knex.insert({ first_name: first, last_name: last, birthdate: date }).into('famous_people').asCallback((error, results) => {
-  if (error) console.log(error);
+  if (error) console.error(error);
   knex.select().from('famous_people').asCallback(function(error, results) {
     console.log("error, results:", error, results)
     process.exit();
